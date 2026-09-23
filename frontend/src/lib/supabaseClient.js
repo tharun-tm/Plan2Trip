@@ -41,11 +41,13 @@ export async function signInWithGoogle() {
     return;
   }
 
-  const redirectTo = `${window.location.origin}/`;
+  const redirectTo = window.location.origin;
 
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo },
+    options: {
+      redirectTo,
+    },
   });
 
   if (error) {
