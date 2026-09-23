@@ -153,49 +153,235 @@ export const MOCK_MOBILITY_DATA = {
   ],
 
   attractions: [
+    // 🛕 TEMPLES & PILGRIMAGE
     {
       id: 'att-1',
-      name: 'Aguada Fort & Lighthouse',
-      rating: 4.7,
-      location: 'Sinquerim, North Goa',
+      name: 'Mahabaleshwar Temple & Atma Linga',
+      rating: 4.9,
+      location: 'Gokarna, Uttara Kannada',
+      distanceFromHub: '230 km on Journey Route',
       duration: '1.5 hours',
-      cost: 100,
-      added: true,
-      category: 'Heritage & Views',
-      image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80'
-    },
-    {
-      id: 'att-2',
-      name: 'Fontainhas Latin Quarter',
-      rating: 4.8,
-      location: 'Panaji',
-      duration: '2.0 hours',
       cost: 0,
       added: true,
-      category: 'Culture & Architecture',
-      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80'
-    },
-    {
-      id: 'att-3',
-      name: 'Basilica of Bom Jesus',
-      rating: 4.6,
-      location: 'Old Goa',
-      duration: '1.0 hour',
-      cost: 0,
-      added: true,
-      category: 'UNESCO World Heritage',
+      category: '🛕 Ancient Temple',
+      type: 'temples',
       image: 'https://images.unsplash.com/photo-1609828913664-85888a70669b?auto=format&fit=crop&w=800&q=80'
     },
     {
-      id: 'att-4',
-      name: 'Dudhsagar Waterfalls Trail',
-      rating: 4.9,
-      location: 'Mollem National Park',
-      duration: '4.5 hours',
-      cost: 500,
-      added: false,
-      category: 'Nature & Adventure',
+      id: 'att-2',
+      name: 'Murudeshwara Coastal Temple & Shiva Statue',
+      rating: 4.8,
+      location: 'Murudeshwar, Uttara Kannada',
+      distanceFromHub: '155 km on NH 66 Coastal Highway',
+      duration: '2.5 hours',
+      cost: 0,
+      added: true,
+      category: '🛕 Pilgrimage & Sea View',
+      type: 'temples',
       image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-3',
+      name: 'Udupi Sri Krishna Matha & Temple Square',
+      rating: 4.9,
+      location: 'Udupi, Karnataka',
+      distanceFromHub: '58 km from Mangaluru Start Point',
+      duration: '1.5 hours',
+      cost: 0,
+      added: true,
+      category: '🛕 Sacred Heritage Temple',
+      type: 'temples',
+      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-4',
+      name: 'Kadri Manjunatha & Mangaladevi Temple',
+      rating: 4.7,
+      location: 'Mangaluru Start Point',
+      distanceFromHub: '4.5 km from Bus Station',
+      duration: '2.0 hours',
+      cost: 0,
+      added: false,
+      category: '🛕 Heritage Temple',
+      type: 'temples',
+      image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-5',
+      name: 'Shri Shanta Durga & Mangueshi Temple',
+      rating: 4.8,
+      location: 'Ponda, Central Goa',
+      distanceFromHub: '28 km before Destination',
+      duration: '1.5 hours',
+      cost: 0,
+      added: false,
+      category: '🛕 Goan Heritage Temple',
+      type: 'temples',
+      image: 'https://images.unsplash.com/photo-1609828913664-85888a70669b?auto=format&fit=crop&w=800&q=80'
+    },
+
+    // 🛍️ MALLS & SHOPPING
+    {
+      id: 'att-6',
+      name: 'Mall of Goa (Porvorim)',
+      rating: 4.6,
+      location: 'Porvorim, North Goa Highway',
+      distanceFromHub: '6.5 km from Panaji Hub',
+      duration: '2.0 hours',
+      cost: 0,
+      added: true,
+      category: '🛍️ Malls & Shopping',
+      type: 'malls',
+      image: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-7',
+      name: 'Nexus Fiza Mall & Multiplex',
+      rating: 4.5,
+      location: 'Pandeshwar, Mangaluru',
+      distanceFromHub: '2.0 km from Start Point',
+      duration: '2.0 hours',
+      cost: 0,
+      added: false,
+      category: '🛍️ Malls & Shopping',
+      type: 'malls',
+      image: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-8',
+      name: 'Panaji Municipal Market & Craft Emporium',
+      rating: 4.5,
+      location: 'City Center, Panaji',
+      distanceFromHub: '1.0 km from City Center',
+      duration: '1.5 hours',
+      cost: 0,
+      added: true,
+      category: '🛍️ Artisanal Shopping Market',
+      type: 'malls',
+      image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=800&q=80'
+    },
+
+    // 🌳 PARKS & NATURE
+    {
+      id: 'att-9',
+      name: 'Kadri Park & Musical Fountain',
+      rating: 4.6,
+      location: 'Kadri, Mangaluru',
+      distanceFromHub: '3.5 km from Start Point',
+      duration: '1.5 hours',
+      cost: 20,
+      added: true,
+      category: '🌳 Parks & Botanical Gardens',
+      type: 'parks',
+      image: 'https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-10',
+      name: 'Pilikula Biological Park & Nisargadhama',
+      rating: 4.7,
+      location: 'Vamanjoor, Mangaluru',
+      distanceFromHub: '12 km from Start Point',
+      duration: '3.0 hours',
+      cost: 100,
+      added: false,
+      category: '🌳 Eco Park & Sanctuary',
+      type: 'parks',
+      image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-11',
+      name: 'Campal Promenade Riverside Park',
+      rating: 4.5,
+      location: 'Mandovi Waterfront, Panaji',
+      distanceFromHub: '1.5 km from Destination Hub',
+      duration: '1.0 hour',
+      cost: 0,
+      added: false,
+      category: '🌳 Waterfront City Park',
+      type: 'parks',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
+    },
+
+    // 🌅 SEA VIEWPOINTS & BEACHES
+    {
+      id: 'att-12',
+      name: 'Maravanthe Beach & Highway Viewpoint',
+      rating: 4.9,
+      location: 'Kundapura, NH 66 Coastal Highway',
+      distanceFromHub: '110 km on Journey Route',
+      duration: '45 mins stop',
+      cost: 0,
+      added: true,
+      category: '🌅 Sea Viewpoint & Highway Drive',
+      type: 'beaches',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-13',
+      name: 'Om Beach Cliff Viewpoint',
+      rating: 4.8,
+      location: 'Gokarna Coast',
+      distanceFromHub: '235 km on Journey Route',
+      duration: '2.0 hours',
+      cost: 0,
+      added: true,
+      category: '🌅 Panoramic Sea Viewpoint',
+      type: 'beaches',
+      image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-14',
+      name: 'Dona Paula Cliff Sea Viewpoint',
+      rating: 4.6,
+      location: 'Panaji, North Goa',
+      distanceFromHub: '7.0 km from Destination Hub',
+      duration: '1.0 hour',
+      cost: 0,
+      added: true,
+      category: '🌅 Sea Viewpoint',
+      type: 'beaches',
+      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-15',
+      name: 'Panambur Beach & Sunset Promenade',
+      rating: 4.6,
+      location: 'Mangaluru Coast',
+      distanceFromHub: '10 km from Start Point',
+      duration: '2.0 hours',
+      cost: 0,
+      added: false,
+      category: '🌅 Sunset Sea Beach',
+      type: 'beaches',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
+    },
+
+    // 🏰 FORTS & HERITAGE
+    {
+      id: 'att-16',
+      name: 'Aguada Fort & Lighthouse',
+      rating: 4.7,
+      location: 'Sinquerim, North Goa',
+      distanceFromHub: '18 km from Destination Hub',
+      duration: '1.5 hours',
+      cost: 100,
+      added: true,
+      category: '🏰 Coastal Heritage Fort',
+      type: 'forts',
+      image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      id: 'att-17',
+      name: 'Mirjan Fort (Coastal Highway Stop)',
+      rating: 4.7,
+      location: 'Kumta, NH 66 Route',
+      distanceFromHub: '210 km on Journey Route',
+      duration: '1.0 hour',
+      cost: 0,
+      added: true,
+      category: '🏰 Ancient Fort & Architecture',
+      type: 'forts',
+      image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80'
     }
   ],
 
@@ -204,28 +390,53 @@ export const MOCK_MOBILITY_DATA = {
       id: 'rest-1',
       name: 'Viva Panjim',
       rating: 4.6,
+      reviewsCount: '2,140+ Google reviews',
       cuisine: 'Goan Seafood & Portuguese',
       priceRange: '₹300 - ₹600 / person',
       location: 'Fontainhas, Panaji',
-      highlight: 'Famous Goan Fish Thali'
+      distance: '1.2 km from City Center',
+      highlight: 'Famous Goan Fish Curry & Prawn Balchão',
+      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+      googleMapsUrl: 'https://www.google.com/maps/search/Viva+Panjim+Goa'
     },
     {
       id: 'rest-2',
       name: 'Fisherman’s Wharf',
       rating: 4.7,
+      reviewsCount: '4,890+ Google reviews',
       cuisine: 'Seafood & Multi-Cuisine',
       priceRange: '₹600 - ₹1200 / person',
-      location: 'Cavelossim',
-      highlight: 'Riverfront Dining Experience'
+      location: 'Cavelossim / Panaji',
+      distance: '3.5 km riverfront view',
+      highlight: 'Riverfront Dining & Live Music',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+      googleMapsUrl: 'https://www.google.com/maps/search/Fishermans+Wharf+Goa'
     },
     {
       id: 'rest-3',
       name: 'Mum’s Kitchen',
       rating: 4.5,
+      reviewsCount: '1,720+ Google reviews',
       cuisine: 'Traditional Goan Heritage',
       priceRange: '₹400 - ₹700 / person',
       location: 'Panaji',
-      highlight: 'Authentic Mother’s Recipes'
+      distance: '0.8 km from Promenade',
+      highlight: 'Authentic Mother’s Xacuti Recipes',
+      image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80',
+      googleMapsUrl: 'https://www.google.com/maps/search/Mums+Kitchen+Panaji'
+    },
+    {
+      id: 'rest-4',
+      name: 'Giri Manja’s / Machali Seafood',
+      rating: 4.8,
+      reviewsCount: '3,450+ Google reviews',
+      cuisine: 'Mangalurean Coastal Seafood',
+      priceRange: '₹250 - ₹500 / person',
+      location: 'Mangaluru City',
+      distance: '2.0 km from Railway Station',
+      highlight: 'Legendary Anjal Tawa Fry & Crab Ghee Roast',
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80',
+      googleMapsUrl: 'https://www.google.com/maps/search/Giri+Manjas+Mangalore'
     }
   ],
 

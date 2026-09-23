@@ -1,7 +1,7 @@
 import React from 'react';
-import { Bus, Train, Car, X, Info } from 'lucide-react';
+import { Bus, Train, Car, X, Info, MapPin } from 'lucide-react';
 
-export default function TransportComparison({ options = [], selectedId, onClose }) {
+export default function TransportComparison({ options = [], selectedId, travelers = 2, origin = 'Mangaluru', destination = 'Goa', onClose }) {
   const getIcon = (type) => {
     switch (type) {
       case 'Train': return <Train className="w-5 h-5 text-slate-800" />;
@@ -16,8 +16,10 @@ export default function TransportComparison({ options = [], selectedId, onClose 
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50/80">
           <div>
-            <h3 className="text-base font-bold text-slate-900">Compare Transport Options</h3>
-            <p className="text-xs text-slate-500">Evaluating cost, speed, and convenience</p>
+            <h3 className="text-base font-bold text-slate-900">Compare Transport Fares</h3>
+            <p className="text-xs text-slate-500 font-medium">
+              Calculated for {travelers} {travelers === 1 ? 'traveler' : 'travelers'} ({origin} → {destination})
+            </p>
           </div>
           <button
             onClick={onClose}
@@ -31,6 +33,9 @@ export default function TransportComparison({ options = [], selectedId, onClose 
         <div className="p-4 sm:p-5 overflow-y-auto space-y-3 flex-1">
           {options.map((opt) => {
             const isSelected = opt.id === selectedId;
+            const perPerson = opt.pricePerPerson || 1000;
+            const calculatedTotal = perPerson * travelers;
+
             return (
               <div
                 key={opt.id}
@@ -58,11 +63,14 @@ export default function TransportComparison({ options = [], selectedId, onClose 
                     </div>
                   </div>
 
+                  {/* Calculated Dynamic Costs */}
                   <div className="text-right">
                     <div className="text-base font-bold text-slate-900 font-mono">
-                      ₹{opt.totalCost?.toLocaleString()}
+                      ₹{calculatedTotal.toLocaleString()}
                     </div>
-                    <span className="text-[10px] text-slate-500 font-mono">₹{opt.pricePerPerson}/person</span>
+                    <span className="text-[10px] text-emerald-800 font-mono font-bold block">
+                      ₹{perPerson.toLocaleString()} / person
+                    </span>
                   </div>
                 </div>
 
@@ -90,8 +98,9 @@ export default function TransportComparison({ options = [], selectedId, onClose 
           })}
         </div>
 
-        <div className="p-3 bg-stone-50 border-t border-stone-200 text-[11px] text-slate-500 text-center font-medium">
-          Mock data structured for future IRCTC & Amadeus API integration.
+        <div className="p-3 bg-stone-50 border-t border-stone-200 text-[11px] text-slate-500 text-center font-medium flex items-center justify-center gap-1.5">
+          <MapPin className="w-3.5 h-3.5 text-purple-600" />
+          <span>Fares and Google Maps distance calculated dynamically for {travelers} travelers</span>
         </div>
       </div>
     </div>

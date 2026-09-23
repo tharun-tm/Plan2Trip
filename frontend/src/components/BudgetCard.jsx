@@ -1,8 +1,15 @@
 import React from 'react';
-import { Wallet, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Wallet, AlertCircle } from 'lucide-react';
+import { useTrip } from '../context/TripContext';
 
-export default function BudgetCard({ totalBudget = 12000, estimatedTotal = 10300, remainingBudget = 1700, currency = '₹' }) {
-  const percentSpent = Math.min(Math.round((estimatedTotal / totalBudget) * 100), 100);
+export default function BudgetCard({ totalBudget: propsBudget, estimatedTotal: propsEstimated, remainingBudget: propsRemaining, currency = '₹' }) {
+  const context = useTrip();
+
+  const totalBudget = propsBudget !== undefined ? propsBudget : context.totalBudgetCap;
+  const estimatedTotal = propsEstimated !== undefined ? propsEstimated : context.dynamicEstimatedTotal;
+  const remainingBudget = propsRemaining !== undefined ? propsRemaining : context.dynamicRemainingBudget;
+
+  const percentSpent = totalBudget > 0 ? Math.min(Math.round((estimatedTotal / totalBudget) * 100), 100) : 100;
   const isOverBudget = remainingBudget < 0;
 
   return (

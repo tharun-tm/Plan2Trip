@@ -114,8 +114,8 @@ export default function TripForm() {
               <DollarSign className="absolute left-3 top-2.5 w-4 h-4 text-emerald-500" />
               <input
                 type="number"
-                placeholder="2000"
-                min="50"
+                placeholder="100"
+                min="100"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                 required

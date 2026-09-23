@@ -1,9 +1,19 @@
 import React from 'react';
 import { PieChart, ShieldCheck } from 'lucide-react';
+import { useTrip } from '../context/TripContext';
 
-export default function BudgetBreakdown({ breakdown = [], totalBudget = 12000, estimatedTotal = 10300, remainingBudget = 1700 }) {
+export default function BudgetBreakdown({ breakdown: propsBreakdown, totalBudget: propsBudget, estimatedTotal: propsEstimated, remainingBudget: propsRemaining }) {
+  const context = useTrip();
+
+  const totalBudget = propsBudget !== undefined ? propsBudget : context.totalBudgetCap;
+  const estimatedTotal = propsEstimated !== undefined ? propsEstimated : context.dynamicEstimatedTotal;
+  const remainingBudget = propsRemaining !== undefined ? propsRemaining : context.dynamicRemainingBudget;
+  const breakdown = propsBreakdown && propsBreakdown.length > 0 ? propsBreakdown : context.dynamicBreakdown;
+
+  const isOverBudget = remainingBudget < 0;
+
   return (
-    <div className="editorial-card rounded-3xl p-5 md:p-6 space-y-4">
+    <div className="editorial-card rounded-3xl p-5 md:p-6 space-y-4 bg-white border border-stone-200">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2.5">
           <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100">
@@ -17,13 +27,15 @@ export default function BudgetBreakdown({ breakdown = [], totalBudget = 12000, e
       </div>
 
       <p className="text-xs text-slate-600 leading-relaxed font-normal">
-        Clean allocation breakdown maintaining a safety reserve of ₹{remainingBudget.toLocaleString()} for spontaneous activities.
+        {isOverBudget
+          ? `Selected items exceed budget by ₹${Math.abs(remainingBudget).toLocaleString()}.`
+          : `Clean allocation breakdown maintaining a safety reserve of ₹${remainingBudget.toLocaleString()} for spontaneous activities.`}
       </p>
 
       {/* Category List */}
       <div className="space-y-3 pt-1">
         {breakdown.map((item, idx) => {
-          const percentage = Math.round((item.amount / totalBudget) * 100);
+          const percentage = totalBudget > 0 ? Math.min(Math.round((item.amount / (estimatedTotal || totalBudget)) * 100), 100) : 0;
           return (
             <div key={idx} className="bg-stone-50 p-3 rounded-2xl border border-stone-200/80 space-y-1.5">
               <div className="flex justify-between items-center text-xs">
@@ -32,7 +44,7 @@ export default function BudgetBreakdown({ breakdown = [], totalBudget = 12000, e
               </div>
               <div className="w-full bg-stone-200 h-2 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-slate-900 rounded-full"
+                  className="h-full bg-slate-900 rounded-full transition-all duration-300"
                   style={{ width: `${percentage}%` }}
                 />
               </div>
@@ -47,9 +59,11 @@ export default function BudgetBreakdown({ breakdown = [], totalBudget = 12000, e
           <span className="text-slate-600">Total Estimated Spend:</span>
           <span className="font-bold text-slate-900 text-sm">₹{estimatedTotal.toLocaleString()}</span>
         </div>
-        <div className="flex justify-between items-center text-xs font-mono bg-emerald-50 p-3 rounded-2xl border border-emerald-100">
-          <span className="text-emerald-800 font-bold">Remaining Safety Reserve:</span>
-          <span className="font-bold text-emerald-800 text-sm">₹{remainingBudget.toLocaleString()}</span>
+        <div className={`flex justify-between items-center text-xs font-mono p-3 rounded-2xl border ${isOverBudget ? 'bg-red-50 text-red-800 border-red-200' : 'bg-emerald-50 text-emerald-800 border-emerald-100'}`}>
+          <span className="font-bold">{isOverBudget ? 'Budget Deficit:' : 'Remaining Safety Reserve:'}</span>
+          <span className="font-bold text-sm">
+            {isOverBudget ? `- ₹${Math.abs(remainingBudget).toLocaleString()}` : `₹${remainingBudget.toLocaleString()}`}
+          </span>
         </div>
       </div>
 

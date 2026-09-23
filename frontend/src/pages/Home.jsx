@@ -61,17 +61,10 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
             <button
               onClick={() => navigate('/plan')}
-              className="py-3.5 px-6 bg-slate-900 hover:bg-brand-700 text-white font-bold rounded-2xl shadow-soft transition-all flex items-center justify-center space-x-2 text-sm"
+              className="py-4 px-8 bg-slate-900 hover:bg-brand-700 text-white font-bold rounded-2xl shadow-soft transition-all flex items-center justify-center space-x-2 text-base"
             >
               <span>Plan My Trip</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={() => navigate('/explore')}
-              className="py-3.5 px-6 bg-white hover:bg-stone-100 text-slate-800 font-bold rounded-2xl border border-stone-200/90 shadow-sm transition-all flex items-center justify-center space-x-2 text-sm"
-            >
-              <span>Explore Trips</span>
+              <ArrowRight className="w-5 h-5 text-white" />
             </button>
           </div>
 
@@ -148,13 +141,13 @@ export default function Home() {
         <div className="max-w-2xl space-y-3">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 uppercase tracking-wider">
             <Navigation className="w-3.5 h-3.5" />
-            <span>Why TripWise</span>
+            <span>Why Plan2Trip</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             Your trip, optimized around you.
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-            TripWise considers your budget, time, destination and preferences to build a mobility-first travel plan.
+            Plan2Trip considers your budget, time, destination and preferences to build a mobility-first travel plan.
           </p>
         </div>
 

@@ -4,9 +4,21 @@ import { MapPin, ArrowRight, Sparkles, Bus, Train } from 'lucide-react';
 
 const POPULAR_ROUTES = [
   {
+    id: 'route-0',
+    origin: 'Mangaluru',
+    destination: 'Gokarna & Murudeshwar',
+    duration: '3 Days / 2 Nights',
+    estBudget: '₹6,500',
+    bestMode: 'Konkan Express Train & Local Bus',
+    image: 'https://images.unsplash.com/photo-1609828913664-85888a70669b?auto=format&fit=crop&w=800&q=80',
+    highlights: ['Mahabaleshwar Shiva Temple', 'Murudeshwar Statue (54km)', 'Kateel River Shrine'],
+    mobilityScore: 98,
+    tag: '🛕 Coastal Temple Trail'
+  },
+  {
     id: 'route-1',
     origin: 'Bengaluru',
-    destination: 'Coorg',
+    destination: 'Coorg & Sakleshpur',
     duration: '3 Days / 2 Nights',
     estBudget: '₹8,500',
     bestMode: 'KSRTC Volvo Airavat Bus (6h 30m)',
